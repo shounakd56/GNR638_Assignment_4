@@ -37,6 +37,9 @@ and starting learning rates-
 
 
 Best model (Optimizer: Adam, LR: 0.0001) val accuracy: 0.8095238095238095 test accuracy: 0.7387
+
+Our test accuracy is roughly 7% lower than the best val accuracy, most likely due to overfitting. This could be prevented by adding DropBlock layers in our CNN (Like we did in Assignment 3).
+
 ![Confusion Matrix](confusion_matrix.png)
 
 
