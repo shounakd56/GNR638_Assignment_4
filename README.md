@@ -34,13 +34,13 @@ and starting learning rates-
   ![lr3](lr3.png)  
 
 
-Low Learning Rates (1e-6, 1e-5):
+##### Low Learning Rates (1e-6, 1e-5):
 
   Adam, AdamW, RMSProp: Work well because they adjust the learning rate for each parameter, use momentum, and normalize gradients.
   
   AdaGrad, AdaDelta, SGD: Struggle because AdaGrad lowers the learning rate too much, AdaDelta depends on past gradients, and SGD makes very small updates due to constant lr.
   
-Moderate Learning Rate (1e-4):
+##### Moderate Learning Rate (1e-4):
 
   Adam/AdamW: Converged fastest (10–15 epochs) due to their adaptive steps.
   
@@ -52,7 +52,7 @@ Moderate Learning Rate (1e-4):
   
   AdaDelta: Remained slow even after 50 epochs
   
-High Learning Rate (1e-3):
+##### High Learning Rate (1e-3):
 
   All optimizers converged within 50 epochs.
   
@@ -60,9 +60,11 @@ High Learning Rate (1e-3):
   
   Adam/AdamW: Worked well but took slightly longer due to their cautious, adaptive steps.
 
-Conslusions:
+##### Conclusions:
   Adaptive optimizers like Adam and RMSProp are better at handling very low learning rates.
+  
   AdaGrad and AdaDelta can struggle when the learning rate is low because they reduce updates too much.
+  
   SGD needs a well-chosen learning rate—too low slows progress, but a higher rate (like 1e-3) can make it very effective.
 
 Best model (Optimizer: Adam, LR: 0.0001) val accuracy: 0.8095238095238095 test accuracy: 0.7387
