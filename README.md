@@ -63,7 +63,7 @@ and starting learning rates-
 ##### Conclusions:
 -  Adaptive optimizers like Adam and RMSProp are better at handling very low learning rates.
   
--  AdaGrad and AdaDelta can struggle when the learning rate is low because they reduce updates too much.
+-  AdaGrad and AdaDelta can struggle when the learning rate is low because they reduce lr too much.
   
 -  SGD needs a well-chosen learning rate—too low slows(1e-6) progress, but a higher rate (1e-3) can make it very effective.
 
