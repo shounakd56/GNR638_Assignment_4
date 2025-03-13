@@ -34,7 +34,11 @@ and starting learning rates-
   ![lr3](lr3.png)  
 
 
+For Low starting learning rates(like 1e-6 and 1e-5), optimisers like Adam, AdamW and RMSProp are able to converge easily but AdaGrad, AdaDelta and SGD were converginng very slowly and were not able to converge even after 50 epochs.
 
+For lr=1e-4, Adam and AdamW converged the fastest(in 10-15 epochs) while RMSProp was slightly slower and took 20 epochs. SGD took few more epochs and converged in around 30 epochs and AdaGrad was even slower and took around 40 epochs, even though it's train loss was still higher, so could have been a local minima of loss instead of global minima. AdaDelta was the slowest and was still converving after 50 epochs with high loss.
+
+For a higher lr 0f 1e-3, all the optimiserz were able to converge withing 50 epochs of training, with SGD and AdaGrad being the fastest.
 
 Best model (Optimizer: Adam, LR: 0.0001) val accuracy: 0.8095238095238095 test accuracy: 0.7387
 
