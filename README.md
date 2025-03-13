@@ -34,11 +34,29 @@ and starting learning rates-
   ![lr3](lr3.png)  
 
 
-For Low starting learning rates(like 1e-6 and 1e-5), optimisers like Adam, AdamW and RMSProp are able to converge easily but AdaGrad, AdaDelta and SGD were converginng very slowly and were not able to converge even after 50 epochs.
+Low Learning Rates (1e-6, 1e-5):
 
-For lr=1e-4, Adam and AdamW converged the fastest(in 10-15 epochs) while RMSProp was slightly slower and took 20 epochs. SGD took few more epochs and converged in around 30 epochs and AdaGrad was even slower and took around 40 epochs, even though it's train loss was still higher, so could have been a local minima of loss instead of global minima. AdaDelta was the slowest and was still converving after 50 epochs with high loss.
+  Adam, AdamW, RMSProp: Work well because they adjust the learning rate for each parameter, use momentum, and normalize gradients.
+  AdaGrad, AdaDelta, SGD: Struggle because AdaGrad lowers the learning rate too much, AdaDelta depends on past gradients, and SGD makes very small updates due to constant lr.
+  
+Moderate Learning Rate (1e-4):
 
-For a higher lr 0f 1e-3, all the optimiserz were able to converge withing 50 epochs of training, with SGD and AdaGrad being the fastest.
+  Adam/AdamW: Converged fastest (10–15 epochs) due to their balanced adaptive adjustments.
+  RMSProp: Took about 20 epochs.
+  SGD: Needed roughly 30 epochs, making steady progress with a fixed rate.
+  AdaGrad: Was slow (around 40 epochs) because its learning rate shrank too much over time.
+  AdaDelta: Remained slow even after 50 epochs
+  
+High Learning Rate (1e-3):
+
+  All optimizers converged within 50 epochs.
+  SGD and AdaGrad: Converged fastest because the higher rate allowed larger updates.
+  Adam/AdamW: Worked well but took slightly longer due to their cautious, adaptive steps.
+
+Conslusions:
+  Adaptive optimizers like Adam and RMSProp are better at handling very low learning rates.
+  AdaGrad and AdaDelta can struggle when the learning rate is low because they reduce updates too much.
+  SGD needs a well-chosen learning rate—too low slows progress, but a higher rate (like 1e-3) can make it very effective.
 
 Best model (Optimizer: Adam, LR: 0.0001) val accuracy: 0.8095238095238095 test accuracy: 0.7387
 
