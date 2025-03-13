@@ -37,20 +37,27 @@ and starting learning rates-
 Low Learning Rates (1e-6, 1e-5):
 
   Adam, AdamW, RMSProp: Work well because they adjust the learning rate for each parameter, use momentum, and normalize gradients.
+  
   AdaGrad, AdaDelta, SGD: Struggle because AdaGrad lowers the learning rate too much, AdaDelta depends on past gradients, and SGD makes very small updates due to constant lr.
   
 Moderate Learning Rate (1e-4):
 
-  Adam/AdamW: Converged fastest (10–15 epochs) due to their balanced adaptive adjustments.
+  Adam/AdamW: Converged fastest (10–15 epochs) due to their adaptive steps.
+  
   RMSProp: Took about 20 epochs.
+  
   SGD: Needed roughly 30 epochs, making steady progress with a fixed rate.
+  
   AdaGrad: Was slow (around 40 epochs) because its learning rate shrank too much over time.
+  
   AdaDelta: Remained slow even after 50 epochs
   
 High Learning Rate (1e-3):
 
   All optimizers converged within 50 epochs.
+  
   SGD and AdaGrad: Converged fastest because the higher rate allowed larger updates.
+  
   Adam/AdamW: Worked well but took slightly longer due to their cautious, adaptive steps.
 
 Conslusions:
