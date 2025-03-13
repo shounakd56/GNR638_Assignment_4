@@ -58,14 +58,14 @@ and starting learning rates-
   
 -  SGD and AdaGrad: Converged fastest because the higher rate allowed larger updates.
   
--  Adam/AdamW: Worked well but took slightly longer due to their cautious, adaptive steps.
+-  Adam/AdamW: Worked well but took slightly longer due to their adaptive steps.
 
 ##### Conclusions:
 -  Adaptive optimizers like Adam and RMSProp are better at handling very low learning rates.
   
 -  AdaGrad and AdaDelta can struggle when the learning rate is low because they reduce updates too much.
   
--  SGD needs a well-chosen learning rate—too low slows progress, but a higher rate (like 1e-3) can make it very effective.
+-  SGD needs a well-chosen learning rate—too low slows(1e-6) progress, but a higher rate (1e-3) can make it very effective.
 
 Best model (Optimizer: Adam, LR: 0.0001) val accuracy: 0.8095238095238095 test accuracy: 0.7387
 
