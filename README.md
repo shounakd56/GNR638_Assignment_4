@@ -38,7 +38,7 @@ and starting learning rates-
 
 -  Adam, AdamW, RMSProp: Work well because they adjust the learning rate for each parameter, use momentum, and normalize gradients.
   
--  AdaGrad, AdaDelta, SGD: Struggle because AdaGrad lowers the learning rate too much, AdaDelta depends on past gradients, and SGD makes very small updates due to constant lr.
+-  AdaGrad, AdaDelta, SGD: Struggle because AdaGrad lowers the learning rate too much as it accumulates squared gradients, making updates vanish. AdaDelta relies on gradient history, which can slow progress if the initial learning rate is too small. SGD makes very small updates due to constant lr.
   
 ##### Moderate Learning Rate (1e-4):
 
